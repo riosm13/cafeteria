@@ -1,15 +1,14 @@
 {
-  "name": "mi-proyecto-supabase",
+  "name": "cafeteria",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "Interfaz de usuario para cafetería",
+  "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "echo \"No build script defined\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@supabase/supabase-js": "^2.46.1"
   },
-  "description": ""
+  "author": "",
+  "license": "ISC"
 }
