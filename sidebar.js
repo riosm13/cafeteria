@@ -37,7 +37,7 @@ function loadPage(page) {
 
             // Cargar estilos específicos según la página
             const cssMapping = {
-                "inicio.html": "inicio.css",
+                "indexml": "inicio.css",
                 "menu.html": "menu.css",  // Aquí solo cargamos menu.css
                 "inventario.html": "inventario_styles.css",
                 "pedidos.html": "inventario_styles.css",
