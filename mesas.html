@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="inventario_styles.css">
+
+</head>
+
+<body>
+
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+
+ <div class="container">
+
+        <!-- Contenedor de notificaciones -->
+
+        <div id="notification-container" class="notification-container">
+
+        </div>
+
+        <!-- Contenedor de contenido (formulario y tabla) -->
+  <div class="content-container">
+
+    <!-- Formulario de Gestión de Inventario --> 
+
+      <div class="modal">
+
+          <h2>Gestión de Mesas</h2>
+
+
+      <!-- Sección del Formulario --> 
+      <div class="form-section">
+
+            <label>Ubicación:</label>
+
+            <select id="Ubicacion">
+
+                <option value="Interior">Interior</option>
+
+                <option value="Terraza">Terraza</option>
+
+                <option value="Al aire libre">Al aire libre</option>
+
+                <option value="Junto a la ventana">Junto a la ventana</option>
+
+                <option value="Cerca del bar">Cerca del bar</option>
+
+                <option value="En la esquina">En la esquina</option>
+
+
+            </select>
+
+            <label>Capacidad:</label>
+
+            <input type="number" placeholder="Ingrese la capacidad de personas" id="Capacidad">
+
+
+            <label>Tipo:</label>
+
+            <select id="Tipo">
+
+                <option value="Para dos">Para dos</option>
+
+                <option value="Familiar">Familiar</option>
+
+                <option value="Para cuatro">Para cuatro</option>
+
+                <option value="Grande">Grande</option>
+
+                <option value="Al aire libre">Al aire libre</option>
+
+                <option value="Terraza">Terraza</option>
+
+            </select>
+
+
+            <label>Estado:</label>
+
+            <select id="Estado">
+
+                <option value="Disponible">Disponible</option>
+
+                <option value="No disponible">No disponible</option>
+
+            </select>
+
+
+            <!-- Botones de acción -->
+
+        <div class="buttons">
+
+            <button class="action-btn" onclick="addMesa()">Agregar Mesa</button>
+
+            <button class="action-btn" onclick="updateMesa()">Actualizar Mesa</button>
+
+            <button class="action-btn" onclick="deleteMesa()">Eliminar Mesa</button>
+
+            <button class="action-btn" onclick="clearForm()">Limpiar Formulario</button>
+
+               
+        </div>
+
+      </div>
+
+     </div>
+
+
+        <!-- Tabla de Mesas -->
+
+        <div class="table-container">
+
+          <h2>Mesas</h2>
+  
+          <table id="inventarioTable">
+
+            <thead>
+
+              <tr>
+
+                <th>Mesa ID</th>
+
+                <th>Ubicación</th>
+
+                <th>Capacidad</th>
+
+                <th>Tipo</th>
+
+                <th>Estado</th>
+
+              </tr>
+
+            </thead>
+    
+            <tbody id="mesasBody">
+
+              <!-- Los datos del inventario se cargarán aquí dinámicamente -->
+
+            </tbody>
+
+          </table>
+
+       </div>
+
+     </div>
+
+   </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
+
+    <script src="mesas.js" defer></script> 
+
+</body> 
+
+</html> 

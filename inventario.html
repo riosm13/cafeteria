@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="inventario_styles.css">
+
+</head>
+
+<body>
+
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+ <div class="container">
+
+        <!-- Contenedor de notificaciones -->
+
+        <div id="notification-container" class="notification-container">
+
+        </div>
+
+        <!-- Contenedor de contenido (formulario y tabla) -->
+  <div class="content-container">
+
+    <!-- Formulario de Gestión de Inventario --> 
+
+      <div class="modal">
+
+          <h2>Gestión de Inventario</h2>
+
+
+      <!-- Sección del Formulario --> 
+      <div class="form-section">
+
+            <label>Nombre del Producto:</label>
+
+            <input type="text" placeholder="Ingrese el nombre del producto" id="Nombre"> 
+            
+            <label>Descripción:</label>
+
+            <input type="text" placeholder="Ingrese la descripción" id="Descripcion">
+
+            <label>Cantidad Disponible:</label>
+            <input type="number" placeholder="Ingrese la cantidad disponible" id="Cantidad_disponible">
+
+            <label>Unidad de Medida:</label>
+
+            <select id="Unidad_medida">
+
+                <option value="Gramos">Gramos</option>
+
+                <option value="Kilogramos">Kilogramos</option>
+
+                <option value="Mililitros">Mililitros</option>
+
+                <option value="Litros">Litros</option>
+
+                <option value="Unidades">Unidades</option>
+
+                <option value="Porciones">Porciones</option>
+
+                <option value="Cucharadas">Cucharadas</option>
+
+                <option value="Tazas">Tazas</option>
+
+                <option value="Piezas">Piezas</option>
+
+                <option value="Libras">Libras</option>
+
+            </select>
+
+
+
+            <label>Costo por Unidad:</label>
+
+            <input type="number" placeholder="Ingrese el costo por unidad" id="Costo_unitario">
+
+            <label>Punto de Reorden:</label>
+            <input type="number" placeholder="Ingrese el punto de reorden" id="Punto_reorden">
+
+  <!-- Fecha de actualización: se obtiene automáticamente con timestamp 'now()' -->
+            <input type="hidden" id="Fecha_actualizacion" name="Fecha_actualizacion" value="">
+
+            <label>Código de Barras:</label>
+            <input type="text" placeholder="Ingrese el código de barras" id="Codigo_barras">
+
+            <label>Fecha de Vencimiento:</label>
+            <input type="date" placeholder="Ingrese la fecha de vencimiento" id="Fecha_vencimiento">
+
+            <label>Observaciones:</label>
+            <textarea placeholder="Observaciones" id="Observaciones"></textarea>
+
+            <label>Categoría:</label>
+            <select id="Categoria">
+
+                <option value="Café">Café</option>
+
+                <option value="Té">Té</option>
+
+                <option value="Lácteos">Lácteos</option>
+
+                <option value="Azúcar">Azúcar</option>
+
+                <option value="Jarabes">Jarabes</option>
+
+                <option value="Frutas frescas">Frutas frescas</option>
+
+                <option value="Verduras">Verduras</option>
+
+                <option value="Panadería">Panadería</option>
+
+                <option value="Salsas">Salsas</option>
+
+                <option value="Condimentos">Condimentos</option>
+
+                <option value="Dulces">Dulces</option>
+
+                <option value="Granos">Granos</option>
+
+                <option value="Nueces y semillas">Nueces y semillas</option>
+
+                <option value="Bebidas">Bebidas</option>
+
+            </select>
+
+
+
+            <label>Proveedor:</label>
+            <select id="Proveedor_id">
+
+                <option value="1">1</option>
+
+                <option value="2">2</option>
+
+                <option value="3">3</option>
+
+                <option value="4">4</option>
+
+                <option value="5">5</option>
+
+                <option value="6">6</option>
+
+                <option value="7">7</option>
+
+                <option value="8">8</option>
+
+                <option value="9">9</option>
+
+                <option value="10">10</option>
+
+                <option value="11">11</option>
+
+                <option value="12">12</option>
+
+
+            </select>
+
+
+
+            <label>Disponibilidad:</label>
+            <select id="Disponibilidad">
+                <option value="Disponible">Disponible</option>
+                <option value="No disponible">No disponible</option>
+            </select>
+
+            <!-- Botones de acción -->
+
+        <div class="buttons">
+
+            <button class="action-btn" onclick="addInventario()">Agregar Item</button>
+
+            <button class="action-btn" onclick="updateInventario()">Actualizar Item</button>
+
+            <button class="action-btn" onclick="deleteInventario()">Eliminar Item</button>
+
+            <button class="action-btn" onclick="clearForm()">Limpiar Formulario</button>
+
+               
+        </div>
+
+      </div>
+
+     </div>
+
+
+        <!-- Tabla de Inventario -->
+
+        <div class="table-container">
+
+          <h2>Inventario</h2>
+  
+          <table id="inventarioTable">
+
+            <thead>
+
+              <tr>
+
+                <th>Item ID</th>
+
+                <th>Nombre</th>
+
+                <th>Descripción</th>
+
+                <th>Cantidad Disponible</th>
+
+                <th>Unidad de Medida</th>
+
+                <th>Costo por Unidad</th>
+
+                <th>Punto de Reorden</th>
+
+                <th>Fecha de atualizacion</th>
+
+                <th>Código de barras</th>
+
+                <th>Fecha de Vencimiento</th>
+
+                <th>Observaciones</th>
+
+                <th>Categoría</th>
+
+                <th>Proveedor</th>
+
+                <th>Disponibilidad</th>
+
+              </tr>
+
+            </thead>
+    
+            <tbody id="inventarioBody">
+
+              <!-- Los datos del inventario se cargarán aquí dinámicamente -->
+
+            </tbody>
+
+          </table>
+
+       </div>
+
+     </div>
+
+   </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
+
+    <script src="inventario.js" defer></script> 
+
+</body> 
+
+</html> 

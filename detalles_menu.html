@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="detalles_menu.css">
+
+    <title>Detalle del Producto</title>
+
+</head>
+
+<body>
+
+       <!-- Menú lateral -->
+    <div class="sidebar">
+       <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+    <header>
+
+        <h2>Detalle del Producto</h2>
+
+    </header>
+
+    <div id="productDetailsContainer">
+
+            <div class="product-image">
+                <img src="" alt="Imagen del producto">
+            </div>
+
+      <div class="product-info">
+
+        <!-- Aquí se cargará el contenido del producto mediante JavaScript -->
+
+      </div>
+    </div>
+
+
+        <button onclick="goBack()">Volver</button>
+
+<script>
+
+    function goBack() {
+
+        window.history.back();
+
+    }
+
+</script>
+
+        <button onclick="addToOrder(menuId)">Agregar a pedido</button>
+
+<script>
+
+    function addToOrder(menuId) {
+
+        // Crear la URL con el parámetro menuId
+        window.location.href = `pedidos.html?menuId=${menuId}`;
+    }
+
+</script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+        <script src="detalles_menu.js"></script>
+
+        <script src="pedidos.js"></script>
+</body>
+
+</html>

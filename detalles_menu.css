@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #f2f0e6;
+}
+
+/* Sidebar (Menú lateral) */
+.sidebar {
+
+    width: 200px;
+
+    background-color: #ffffff; /* Color de fondo del menú */
+
+    color: #000000; /* Color del texto */
+
+    position: fixed;
+
+    left: 0;
+
+    height: 100%;
+
+    padding: 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center; /* Centra los elementos dentro de la barra lateral */
+
+}
+
+.sidebar img {
+    width: 80%;
+    max-width: 120px;
+    height: auto;
+    margin: 0 auto 20px;
+}
+
+/* Listado del menú lateral */
+.sidebar ul {
+    list-style: none; /* Elimina los puntos de lista predeterminados */
+    padding: 0;       /* Remueve el padding por defecto */
+
+}
+
+.sidebar ul li {
+    padding: 10px;             /* Espacio interno para cada elemento */
+    text-align: center;        /* Centra el texto dentro de cada elemento */
+    cursor: pointer;           /* Cambia el cursor a pointer para indicar que es interactivo */
+    border-bottom: 1px solid #444; /* Línea divisoria entre elementos */
+
+}
+
+.sidebar ul li:hover {
+    background-color: #fff7e1; /* Fondo al pasar el cursor para efecto de hover */
+}
+
+.sidebar h2 {
+    text-align: left;
+    color: #7b4e2e;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar nav ul li:hover {
+    background-color: #fff7e1; /* Color cuando pasas el mouse por encima */
+}
+
+.main-content {
+    width: 100%;            /* Asegura que ocupe todo el ancho disponible */
+    max-width: 100%;        /* Previene que se desborde horizontalmente */
+    overflow-x: hidden;     /* Oculta cualquier contenido que se extienda horizontalmente */
+    margin: 0 auto;         /* Centra el contenido si es necesario */
+    padding: 20px;          /* Opcional: Espaciado interno para diseño */
+    box-sizing: border-box; /* Incluye padding en las dimensiones */
+}
+
+header {
+    background-color: none;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 300px;
+}
+
+#productDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 240px; /* Ajuste para que el contenido no esté detrás del sidebar */
+    max-width: 800px; /* Ancho máximo del contenedor */
+    align-items: flex-start;
+}
+
+h2, .product-info h3 {
+    color: #7b4e2e;
+    font-family: 'Georgia', serif; /* Fuente elegante para títulos */
+    margin-left: 0;
+
+}
+
+.product-info h3 {
+    font-size: 24px;
+
+}
+
+.product-info p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+}
+
+button {
+    background-color: #b5835a;
+    color: #ffff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px 0;
+    margin-left: 250px; /* Para evitar que queden cubiertos por el sidebar */
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.product-image img {
+    width: 100%; /* Ocupa el 100% del contenedor */
+    max-width: 300px; /* Limita el ancho máximo */
+    height: auto;
+    margin: 0 auto; /* Centra la imagen */
+    border-radius: 10px;

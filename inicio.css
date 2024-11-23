@@ -1,0 +1,211 @@
+/* Estilo general */
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  font-family: Arial, sans-serif;
+  background-color: #f2f0e6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Sidebar (Menú lateral) */
+.sidebar {
+
+    width: 180px;
+
+    background-color: #ffffff; /* Color de fondo del menú */
+
+    color: #000000; /* Color del texto */
+
+    position: fixed;
+
+    left: 0;
+
+    height: 100%;
+
+    padding: 10px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center; /* Centra los elementos dentro de la barra lateral */
+
+}
+
+.sidebar img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    margin: 0 auto 20px;
+}
+
+/* Listado del menú lateral */
+.sidebar ul {
+    list-style: none; /* Elimina los puntos de lista predeterminados */
+    padding: 0;       /* Remueve el padding por defecto */
+
+}
+
+.sidebar ul li {
+    padding: 10px;             /* Espacio interno para cada elemento */
+    text-align: center;        /* Centra el texto dentro de cada elemento */
+    cursor: pointer;           /* Cambia el cursor a pointer para indicar que es interactivo */
+    border-bottom: 1px solid #444; /* Línea divisoria entre elementos */
+
+}
+
+.sidebar ul li:hover {
+    background-color: #fff7e1; /* Fondo al pasar el cursor para efecto de hover */
+}
+
+.sidebar h2 {
+    text-align: left;
+    color: #7b4e2e;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar nav ul li:hover {
+    background-color: #fff7e1; /* Color cuando pasas el mouse por encima */
+}
+
+.main-content {
+    width: 100%;            /* Asegura que ocupe todo el ancho disponible */
+    max-width: 100%;        /* Previene que se desborde horizontalmente */
+    overflow-x: hidden;     /* Oculta cualquier contenido que se extienda horizontalmente */
+    margin: 0 auto;         /* Centra el contenido si es necesario */
+    padding: 20px;          /* Opcional: Espaciado interno para diseño */
+    box-sizing: border-box; /* Incluye padding en las dimensiones */
+}
+
+/* Contenedor principal */
+.container {
+  margin-left: 200px; /* Desplazar el contenido para dar espacio al sidebar */
+  padding: 20px;
+  display: gid;
+  grid-template-areas:
+    "header header"
+    "image info"
+    "notifications notifications";
+  grid-gap: 20px;
+  background-color: #f2f0e6;
+  min-height: 100vh;
+}
+
+/* Estilo para el encabezado */
+
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #7b4e2e;
+
+}
+.header .highlight {
+    color: #b5835a;
+    font-weight: bold;
+
+}
+
+.date-weather {
+    text-align: right;
+}
+
+.header .weather-widget {
+  padding: 10px 15px;
+  background-color: #fff7e1;
+  color: #8c5523;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Imagen principal */
+.main-image {
+  grid-area: image;
+}
+
+/* Imagen principal */
+.main-image img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Información básica */
+
+.info-section {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaciado entre secciones */
+}
+
+.adress, .social-links {
+  background-color: #fff7e1;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #000;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.adress h3, 
+.notifications h2 {
+  margin: 0 0 10px;
+  color: #b5835a;
+  font-weight: bold;
+
+}
+
+.social-links a img {
+  width: 24px; /* Tamaño corregido */
+  height: 24px; /* Tamaño corregido */
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.social-links a img:hover {
+  transform: scale(1.1); /* Efecto de hover */
+
+}
+/* Notificaciones */
+.notifications {
+    grid-area: notifications;
+    margin-top: 20px;
+    background-color: #fff7e1;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #000;
+}

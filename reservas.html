@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inventario_styles.css">
+</head>
+<body>
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+
+    <div class="container">
+        <!-- Contenedor de notificaciones -->
+        <div id="notification-container" class="notification-container"></div>
+
+        <!-- Contenedor de contenido (formulario y tabla) -->
+        <div class="content-container">
+
+
+            <!-- Formulario de Gestión de Reservas -->
+            <div class="modal">
+
+                <h2>Gestión de Reservas</h2>
+
+                <!-- Sección del Formulario -->
+
+                <div class="form-section">
+
+                    <label>Cliente ID:</label>
+                    <input type="number" placeholder="Ingrese el ID del cliente" id="cliente_id">
+
+                    <label>Fecha para reservar:</label>
+                    <input type="datetime-local" id="Fecha_reserva">
+
+                    <label>Número de personas:</label>
+                    <input type="number" placeholder="Ingrese el número de personas" id="Num_personas">
+
+                    <label>Tipo:</label>
+                    <select id="Tipo_reserva">
+                        <option value="Dine-in">Dine-in</option>
+
+                    </select>
+
+                    <label>Estado de la reserva:</label>
+                    <select id="Estado_reserva">
+                        <option value="Confirmada">Confirmada</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Cancelada">Cancelada</option>
+                        <option value="Completada">Completada</option>
+                        <option value="No se presentó">No se presentó</option>
+                    </select>
+
+                    <label>Mesa ID:</label>
+                    <select id="mesa_id">
+                        <option value="mesa_Familiar_01">mesa_Familiar_01</option>
+                        <option value="mesa_Familiar_02">mesa_Familiar_02</option>
+                        <option value="mesa_Familiar_03">mesa_Familiar_03</option>
+                        <option value="mesa_Grande_01">mesa_Grande_01</option>
+                        <option value="mesa_Para cuatro_01">mesa_Para cuatro_01</option>
+                        <option value="mesa_Para cuatro_02">mesa_Para cuatro_02</option>
+                        <option value="mesa_Para cuatro_03">mesa_Para cuatro_03</option>
+                        <option value="mesa_Para dos_01">mesa_Para dos_01</option>
+                        <option value="mesa_Para dos_02">mesa_Para dos_02</option>
+                        <option value="mesa_Para dos_03">mesa_Para dos_03</option>
+                        <option value="mesa_Para dos_04">mesa_Para dos_04</option>
+                        <option value="mesa_Para dos_05">mesa_Para dos_05</option>
+                        <option value="mesa_Para dos_06">mesa_Para dos_06</option>
+
+                    </select>
+
+                    <label>Fecha creación de la reserva:</label>
+                    <input type="datetime-local" id="Fecha_creacion">
+
+
+                    <label>Notas:</label>
+                    <textarea placeholder="Notas adicionales" id="Notas"></textarea>
+
+  <!-- ultima actualización: se obtiene automáticamente con timestamp 'now()' -->
+                    <input type="hidden" id="Ultima_actualizacion" name="Fecha actualizacion" value="">
+
+                    <!-- Botones de acción -->
+
+                    <div class="buttons">
+                        <button class="action-btn" onclick="addReserva()">Agregar Reserva</button>
+                        <button class="action-btn" onclick="updateReserva()">Actualizar Reserva</button>
+                        <button class="action-btn" onclick="deleteReserva()">Eliminar Reserva</button>
+                        <button class="action-btn" onclick="clearForm()">Limpiar Formulario</button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Reservas -->
+            <div class="table-container">
+                <h2>Reservas</h2>
+                <table id="inventarioTable">
+                    <thead>
+                        <tr>
+                            <th>Reserva ID</th>
+                            <th>Cliente ID</th>
+                            <th>Fecha para reservar</th>
+                            <th>Tipo</th>
+                            <th>Mesa ID</th>
+                            <th>Número de personas</th>
+                            <th>Estado de la reserva</th>
+                            <th>Fecha creación de la reserva</th>
+                            <th>Notas</th>
+                            <th>Fecha_actualizacion</th>
+
+                        </tr>
+                    </thead>
+                    <tbody id="reservasBody">
+
+                        <!-- Los datos de los pedidos se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
+
+    <script src="reservas.js" defer></script> 
+
+</body> 
+
+</html> 

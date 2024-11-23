@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Refugio del Sabor</title>
+    <link rel="stylesheet" href="inicio.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+</head>
+<body>
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+
+    <!-- Contenedor dinámico -->
+    <div class="container">
+        <!-- Encabezado -->
+        <div class="header">
+            <h1>Bienvenido a <span class="highlight">"El Refugio del Sabor"</span></h1>
+            <div class="date-weather">
+                <p id="date"></p>
+                <div class="weather-widget" id="weather-widget">Cargando clima...</div>
+            </div>
+        </div>
+
+        <!-- Imagen principal -->
+        <div class="main-image">
+            <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/coffee-shop-inside-without-people.png" alt="imagen ilustrativa" />
+        </div>
+
+        <!-- Información básica -->
+        <div class="info-section">
+            <div class="address">
+                <h3>Dirección:</h3>
+                <p>Calle 123 #098 Col. ABC, C.P 12345, Puerto Vallarta, Jalisco, México.</p>
+            </div>
+            <div class="social-links">
+                <a href="tel:+521234567890">
+                    <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/telefono.png" alt="Teléfono"> 322 123 456 78
+                </a>
+                <a href="https://wa.me/52322345678">
+                    <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/whatsapp.png" alt="WhatsApp"> WhatsApp
+                </a>
+            </div>
+        </div>
+
+
+        <!-- Notificaciones -->
+        <div class="notifications">
+            <h2>Notificaciones</h2>
+            <div id="notification-container">
+                <p>No hay notificaciones recientes</p>
+            </div>
+        </div>
+    </div>
+<script src="noti_inventario.js"></script>
+
+
+   <script>
+       // Script para mostrar la fecha en el encabezado
+       const dateElement = document.getElementById('date');
+       const today = new Date();
+       const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+       const formattedDate = today.toLocaleDateString('es-MX', options);
+       dateElement.textContent = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+   </script>
+
+ 
+    <script src="inicio.js"></script>
+
+</body>
+</html>

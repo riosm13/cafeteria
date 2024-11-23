@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="menu.css">
+
+</head>
+
+<body>
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+
+    <!-- Barra de búsqueda y título -->
+
+    <header>
+
+        <h2>Menú</h2>
+
+        <div class="search-container">
+
+            <input type="text" id="searchInput" placeholder="Buscar en el Menú..." onkeyup="filterMenu()">
+
+            <i class="search-icon">🔍</i>
+
+        </div>
+
+    </header>
+
+
+    <!-- Filtros de categorías -->
+    <div class="filters">
+        <label>Platillos Principales:
+            <select id="mainDishes">
+                <option value="">Selecciona una categoría</option>
+                <option value="Entradas">Entradas</option>
+                <option value="Platos principales">Platos principales</option>
+                <option value="Ensaladas">Ensaladas</option>
+                <option value="Especialidades de la casa">Especialidades de la casa</option>
+                <option value="Sandwiches">Sandwiches</option>
+            </select>
+        </label>
+        <label>Postres y Snacks:
+            <select id="desserts">
+                <option value="">Selecciona una categoría</option>
+                <option value="Postres">Postres</option>
+                <option value="Pasteles">Pasteles</option>
+                <option value="Snacks">Snacks</option>
+            </select>
+        </label>
+        <label>Bebidas:
+            <select id="drinks">
+                <option value="">Selecciona una categoría</option>
+                <option value="Cafés">Cafés</option>
+                <option value="Tés">Tés</option>
+                <option value="Bebidas frías">Bebidas frías</option>
+            </select>
+
+        </label>
+        <label>Dietas y Preferencias Especiales:
+            <select id="diets">
+                <option value="">Selecciona una categoría</option>
+                <option value="Opciones veganas">Opciones veganas</option>
+                <option value="Opciones vegetarianas">Opciones vegetarianas</option>
+                <option value="Sin lactosa">Sin lactosa</option>
+                <option value="Sin gluten">Sin gluten</option>
+                <option value="Orgánico">Orgánico</option>
+            </select>
+        </label>
+        <button id="clearFilters">Quitar Filtro</button>
+    </div>
+
+    <!-- Contenedor de categorías y menú -->
+    <div id="menuContainer">
+        <!-- Aquí se inyectarán las tarjetas de platillos desde JavaScript -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+    <script src="menu.js"></script>
+
+</body>
+
+</html>

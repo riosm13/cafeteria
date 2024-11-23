@@ -1,0 +1,288 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f0e6;
+}
+
+/* Sidebar (Menú lateral) */
+.sidebar {
+
+    width: 180px;
+
+    background-color: #ffffff; /* Color de fondo del menú */
+
+    color: #000000; /* Color del texto */
+
+    position: fixed;
+
+    left: 0;
+
+    height: 100%;
+
+    padding: 10px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center; /* Centra los elementos dentro de la barra lateral */
+
+}
+
+.sidebar img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    margin: 0 auto 20px;
+}
+
+/* Listado del menú lateral */
+.sidebar ul {
+    list-style: none; /* Elimina los puntos de lista predeterminados */
+    padding: 0;       /* Remueve el padding por defecto */
+
+}
+
+.sidebar ul li {
+    padding: 10px;             /* Espacio interno para cada elemento */
+    text-align: center;        /* Centra el texto dentro de cada elemento */
+    cursor: pointer;           /* Cambia el cursor a pointer para indicar que es interactivo */
+    border-bottom: 1px solid #444; /* Línea divisoria entre elementos */
+
+}
+
+.sidebar ul li:hover {
+    background-color: #fff7e1; /* Fondo al pasar el cursor para efecto de hover */
+}
+
+.sidebar h2 {
+    text-align: left;
+    color: #7b4e2e;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+}
+
+.sidebar nav ul li:hover {
+    background-color: #fff7e1; /* Color cuando pasas el mouse por encima */
+}
+
+.main-content {
+    width: 100%;            /* Asegura que ocupe todo el ancho disponible */
+    max-width: 100%;        /* Previene que se desborde horizontalmente */
+    overflow-x: hidden;     /* Oculta cualquier contenido que se extienda horizontalmente */
+    margin: 0 auto;         /* Centra el contenido si es necesario */
+    padding: 20px;          /* Opcional: Espaciado interno para diseño */
+    box-sizing: border-box; /* Incluye padding en las dimensiones */
+}
+
+header {
+
+    position: relative;
+    padding: 10px 20px;
+    background-color: none;
+
+
+}
+
+header h2 {
+    color: #b5835a;
+    font-size: 30px;
+    position: absolute;
+    left: 280px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 20px;
+
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 20px;
+
+}
+
+#searchInput {
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.search-icon {
+    margin-left: 5px;
+    font-size: 18px;
+}
+
+#searchButton {
+    background-color: #b5835a;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    font-size: 1em;
+    border-radius: 50%; /* Botón redondo */
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: none; /* Color más oscuro al pasar el cursor */
+}
+
+.filters {
+
+    margin-left: 300px;
+    display: flex;
+    gap: 15px; /* Espacio entre los botones */
+    align-items: center;
+    justify-content: center; /* Centra los botones horizontalmente */
+    padding: 30px;
+
+}
+
+.filters label {
+    font-weight: bold;
+    color: #333;
+}
+
+.filters select {
+    padding: 5px;
+    font-size: 1em;
+}
+
+.filters select,
+#clearFilterButton {
+    background-color: #b5835a;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1em;
+    border-radius: 12px; /* Bordes redondeados */
+    cursor: pointer;
+}
+
+.filters select:hover,
+#clearFilterButton:hover {
+    background-color: #a36c4f; /* Color más oscuro al pasar el cursor */
+}
+
+#clearFilterButton {
+    background-color: #b5835a;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1em;
+    border-radius: 12px;
+    cursor: pointer;
+
+}
+
+#clearFilterButton:hover {
+    background-color: #a36c4f; /* Color más oscuro al pasar el cursor */
+
+}
+
+#menuContainer {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    margin-left: 200px;
+
+}
+
+.card {
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    position: relative;
+
+}
+
+.card:hover {
+    transform: scale(1.05);
+
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.card .price {
+    font-weight: bold;
+    color: #e67e22;
+}
+
+.card.unavailable {
+    background-color: #f0f0f0;
+    color: #999;
+    filter: grayscale(100%);
+    pointer-events: none;
+
+}
+
+.card-header img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    height: auto;
+}
+
+.view-details-button {
+    background: none;
+    border: none;
+    font-size: 1.2em;
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+
+}
+
+.view-details-button:hover {
+    color: #777;
+}
+
+.card .more-icon {
+    display: none
+
+}

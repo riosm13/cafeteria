@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="inventario_styles.css">
+
+</head>
+
+<body>
+
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+
+ <div class="container">
+
+        <!-- Contenedor de notificaciones -->
+
+        <div id="notification-container" class="notification-container">
+
+        </div>
+
+        <!-- Contenedor de contenido (formulario y tabla) -->
+  <div class="content-container">
+
+    <!-- Formulario de Gestión de Personal --> 
+
+      <div class="modal">
+
+          <h2>Gestión de Personal</h2>
+
+
+      <!-- Sección del Formulario --> 
+      <div class="form-section">
+
+            <label>Nombre:</label>
+
+            <input type="text" placeholder="Ingrese el nombre/s del empleado" id="Nombre"> 
+
+            <label>Apellido paterno:</label>
+
+            <input type="text" placeholder="Ingrese el apellido paterno del empleado" id="Apellido_p"> 
+
+            <label>Apellido materno:</label>
+
+            <input type="text" placeholder="Ingrese el apellido materno del empleado" id="Apellido_m">
+
+            <label>Puesto:</label>
+
+            <select id="Puesto">
+
+                <option value="Chef">Chef</option>
+
+                <option value="Cajero">Cajero</option>
+
+                <option value="Mesero">Mesero</option>
+
+                <option value="Barista">Barista</option>
+
+                <option value="Gerente">Gerente</option>
+
+                <option value="Limpieza">Limpieza</option>
+
+            </select>
+
+
+            <label>Área:</label>
+
+            <select id="Area">
+
+                <option value="Cocina">Cocina</option>
+
+                <option value="Servicio">Servicio</option>
+
+                <option value="Administracion">Administracion</option>
+
+                <option value="Barra">Barra</option>
+
+                <option value="Limpieza">Limpieza</option>
+
+            </select>
+
+            <label>Teléfono:</label>
+
+            <input type="number" placeholder="Ingrese el número telefónico" id="Telefono">
+
+            <label>Correo electrónico:</label>
+
+            <input type="text" placeholder="Ingrese el correo electrónico" id="Email">
+
+            <label>Fecha de contratación:</label>
+
+            <input type="date" id="Fecha_contratacion">
+
+            <label>Estado:</label>
+
+            <select id="Estado_empleado">
+
+                <option value="Activo">Activo</option>
+
+                <option value="Vacaciones">Vacaciones</option>
+
+                <option value="Licencia">Licencia</option>
+
+                <option value="Ausente">Ausente</option>
+
+            </select>
+
+            <label>Salario quincenal:</label>
+
+            <input type="number" placeholder="Ingrese el salario quincenal" id="Salario_quincenal">
+
+            <label>Inicio de turno:</label>
+
+            <input type="time" id="Turno_inicio">
+
+            <label>Fin de Turno:</label>
+
+            <input type="time" id="Turno_fin">
+
+            <label>Notas:</label>
+            <textarea placeholder="Notas adicionales" id="Notas"></textarea>
+
+            <!-- Botones de acción -->
+
+        <div class="buttons">
+
+            <button class="action-btn" onclick="addPersonal()">Agregar Empleado</button>
+
+            <button class="action-btn" onclick="updatePersonal()">Actualizar Empleado</button>
+
+            <button class="action-btn" onclick="deletePersonal()">Eliminar Empleado</button>
+
+            <button class="action-btn" onclick="clearForm()">Limpiar Formulario</button>
+
+               
+        </div>
+
+      </div>
+
+     </div>
+
+
+        <!-- Tabla de Personal -->
+
+        <div class="table-container">
+
+          <h2>Personal</h2>
+  
+          <table id="inventarioTable">
+
+            <thead>
+
+              <tr>
+
+                <th>Empleado ID</th>
+
+                <th>Nombre</th>
+
+                <th>Apellido Paterno</th>
+
+                <th>Apellido Materno</th>
+
+                <th>Puesto</th>
+
+                <th>Área</th>
+
+                <th>Teléfono</th>
+
+                <th>Correo electrónico</th>
+
+                <th>Fecha de contratación</th>
+
+                <th>Estado</th>
+
+                <th>Salario quincenal</th>
+
+                <th>Inicio de turno</th>
+
+                <th>Fin de turno</th>
+
+                <th>Notas</th>
+
+              </tr>
+
+            </thead>
+    
+            <tbody id="personalBody">
+
+              <!-- Los datos del inventario se cargarán aquí dinámicamente -->
+
+            </tbody>
+
+          </table>
+
+       </div>
+
+     </div>
+
+   </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
+
+    <script src="personal.js"></script> 
+
+</body> 
+
+</html> 

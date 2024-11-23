@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="inventario_styles.css">
+</head>
+<body>
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+
+    <script src="sidebar.js"></script>
+
+    <div class="container">
+        <!-- Contenedor de notificaciones -->
+        <div id="notification-container" class="notification-container"></div>
+
+        <!-- Contenedor de contenido (formulario y tabla) -->
+        <div class="content-container">
+
+
+            <!-- Formulario de Gestión de Pedidos -->
+            <div class="modal">
+
+                <h2>Gestión de Pedidos</h2>
+
+                <!-- Sección del Formulario -->
+
+                <div class="form-section">
+                    <label>Cliente ID:</label>
+                    <input type="number" placeholder="Ingrese el ID del cliente" id="cliente_id">
+
+                    <label>Fecha de Pedido:</label>
+                    <input type="datetime-local" id="Fecha_pedido">
+
+                    <label>Estado:</label>
+                    <select id="Estado">
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="En preparación">En preparación</option>
+                        <option value="Listo para servir">Listo para servir</option>
+                        <option value="Servido">Servido</option>
+
+                        <option value="Cancelado">Cancelado</option>
+
+                    </select>
+
+                    <label>Tipo:</label>
+                    <select id="Tipo">
+                        <option value="Dine-in">Dine-in</option>
+                    </select>
+
+                    <label>Cantidad:</label>
+                    <input type="number" placeholder="Ingresa la cantidad" id="Cantidad">
+
+                    <label>Menu ID:</label>
+                    <input type="number" placeholder="Ingrese el ID del menú" id="menu_id">
+
+                    <label>Método de Pago:</label>
+                    <select id="Metodo_pago">
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+                        <option value="Tarjeta de débito">Tarjeta de débito</option>
+                        <option value="Transferencia bancaria">Transferencia bancaria</option>
+                        <option value="Vale de consumo">Vale de consumo</option>
+                    </select>
+
+                    <label>Descuento:</label>
+                    <input type="number" step="0.01" placeholder="Ingrese el descuento" id="Descuento">
+
+                    <label>Notas:</label>
+                    <textarea placeholder="Notas adicionales" id="Notas"></textarea>
+
+                    <label>Empleado ID:</label>
+                    <select id="empleado_id">
+                        <option value="FAR_20210310_G_A">FAR_20210310_G_A</option>
+                        <option value="JGS_20210128_G_A">JGS_20210128_G_A</option>
+                        <option value="MTR_20221215_B_B">MTR_20221215_B_B</option>
+                        <option value="LAF_20230512_B_B">LAF_20230512_B_B</option>
+                        <option value="JLC_20231001_C_C">JLC_20231001_C_C</option>
+                        <option value="CMB_20201102_C_C">CMB_20201102_C_C</option>
+                        <option value="JRS_20231005_C_C">JRS_20231005_C_C</option>
+                        <option value="LRS_20220507_C_C">LRS_20220507_C_C</option>
+                        <option value="LRM_20220722_L_L">LRM_20220722_L_L</option>
+                        <option value="LMR_20220905_L_L">LMR_20220905_L_L</option>
+                        <option value="PDM_20230610_M_S">PDM_20230610_M_S</option>
+                        <option value="LMP_20231209_M_S">LMP_20231209_M_S</option>
+                        <option value="MPM_20230430_C_S">MPM_20230430_C_S</option>
+                        <option value="CTL_20220320_C_S">CTL_20220320_C_S</option>
+                        <option value="MNT_20230314_M_S">MNT_20230314_M_S</option>
+                        <option value="WTM_20240125_M_S">WTM_20240125_M_S</option>
+                    </select>
+
+                    <!-- Botones de acción -->
+
+                    <div class="buttons">
+                        <button class="action-btn" onclick="addPedido()">Agregar Pedido</button>
+                        <button class="action-btn" onclick="updatePedido()">Actualizar Pedido</button>
+                        <button class="action-btn" onclick="deletePedido()">Eliminar Pedido</button>
+                        <button class="action-btn" onclick="clearForm()">Limpiar Formulario</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Pedidos -->
+            <div class="table-container">
+                <h2>Pedidos</h2>
+                <table id="pedidosTable">
+                    <thead>
+                        <tr>
+                            <th>Pedido ID</th>
+                            <th>Cliente ID</th>
+                            <th>Fecha de Pedido</th>
+                            <th>Estado</th>
+                            <th>Tipo</th>
+                            <th>Cantidad</th>
+                            <th>Menu ID</th>
+                            <th>Método de Pago</th>
+                            <th>Descuento</th>
+                            <th>Notas</th>
+                            <th>Empleado ID</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pedidosBody">
+                        <!-- Los datos de los pedidos se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<ul id="orderList">
+    <!-- Aquí aparecerán los productos agregados al pedido -->
+</ul>
+
+<script>
+    // Obtener los parámetros de la URL
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const menuId = urlParams.get('menuId');
+    
+    // Mostrar el producto agregado (en este caso solo el menuId)
+
+    if (menuId) {
+
+        console.log("Producto agregado al pedido, ID:", menuId);
+        
+        // Mostrar el producto en una lista de pedidos
+        let orderList = document.getElementById('orderList');
+        let orderItem = document.createElement('li');
+        orderItem.textContent = `Producto ID: ${menuId}`;
+        orderList.appendChild(orderItem);
+    }
+</script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
+    <script src="pedidos.js"></script> 
+</body> 
+</html>

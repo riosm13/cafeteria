@@ -1,0 +1,191 @@
+<!DOCTYPE html> 
+
+<html lang="es"> 
+
+<head> 
+
+  <meta charset="UTF-8"> 
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+  <title>Gestión de Clientes</title> 
+
+  <link rel="stylesheet" href="inventario_styles.css"> <!-- Asegúrate de tener el archivo styles.css --> 
+
+</head> 
+
+<body> 
+
+
+    <!-- Menú lateral -->
+    <div class="sidebar">
+        <img src="https://raw.githubusercontent.com/riosm13/logos/refs/heads/main/-U1sYADR6QPCm-jGVY55T-transformed.png" alt="Logo" class="logo">
+<nav>
+  <ul id="menu">
+    <li data-page="inicio.html">Inicio</li>
+    <li data-page="menu.html">Menú</li>
+    <li data-page="pedidos.html">Pedidos</li>
+    <li data-page="reservas.html">Reservas</li>
+    <li data-page="clientes.html">Clientes</li>
+    <li data-page="ofertas.html">Ofertas</li>
+    <li data-page="inventario.html">Inventario</li>
+    <li data-page="proveedores.html">Proveedores</li>
+    <li data-page="mesas.html">Mesas</li>
+    <li data-page="personal.html">Personal</li>
+  </ul>
+</nav>
+    </div>
+
+        <!-- Contenedor para el contenido dinámico -->
+        <div id="mainContent">
+            <!-- Aquí se cargará dinámicamente el contenido de cada página -->
+        </div>
+  
+    <script src="sidebar.js"></script>
+
+  <div class="container"> 
+
+        <!-- Contenedor de notificaciones -->
+
+        <div id="notification.container" class="notification-container">
+
+        </div>
+
+        <!-- Contenedor de contenido (formulario y tabla) -->
+
+  <div class="content-container">
+
+    <!-- Formulario de Gestión de Clientes --> 
+
+      <div class="modal"> 
+
+          <h2>Gestión de Clientes</h2> 
+
+       
+      <!-- Sección del Formulario --> 
+
+      <div class="form-section"> 
+
+        <label>Nombre:</label> 
+
+        <input type="text" placeholder="Ingresa el nombre" id="Nombre"> <!-- Cambié 'nombre' por 'Nombre' --> 
+
+         
+
+        <label>Género:</label> 
+
+        <select id="Genero"> <!-- Cambié 'genero' por 'Genero' --> 
+
+
+          <option value="Femenino">Femenino</option> 
+
+          <option value="Masculino">Masculino</option> 
+
+        </select> 
+
+  
+
+        <label>Correo Electrónico:</label> 
+
+        <input type="email" placeholder="Ingresa el correo electrónico" id="Email"> <!-- Cambié 'email' por 'Email' --> 
+
+         
+
+        <label>Teléfono:</label> 
+
+        <input type="text" placeholder="Ingresa el teléfono" id="Telefono"> <!-- Cambié 'telefono' por 'Telefono' --> 
+
+  
+
+        <label>Preferencia de Pago:</label> 
+
+        <select id="Preferencia_pago"> <!-- Cambié 'preferencia_pago' por 'Preferencia_pago' --> 
+
+
+          <option value="Efectivo">Efectivo</option> 
+
+          <option value="Tarjeta de crédito">Tarjeta de crédito</option> 
+
+          <option value="Tarjeta de débito">Tarjeta de débito</option> 
+
+          <option value="Transferencia bancaria">Transferencia bancaria</option> 
+
+          <option value="Vale de consumo">Vale de consumo</option> 
+
+        </select> 
+
+  
+
+        <label>Notas:</label> 
+
+        <textarea placeholder="Notas adicionales" id="Notas"></textarea> <!-- Cambié 'notas' por 'Notas' --> 
+
+
+        <!-- Botones de acción --> 
+    <div class="buttons">
+
+        <button class="action-btn" onclick="addCliente()">Agregar Cliente</button> 
+
+        <button class="action-btn" onclick="updateCliente()">Actualizar Cliente</button> 
+
+        <button class="action-btn" onclick="deleteCliente()">Eliminar Cliente</button> 
+
+        <button class="action-btn" onclick="clearForm()">Limpiar formulario</button> 
+
+        </div> 
+
+      </div> 
+
+     </div>   
+
+        <!-- Tabla de Clientes --> 
+
+    <div class="table-container"> 
+
+      <h2>Lista de Clientes</h2> 
+
+      <table id="clientesTable"> 
+
+        <thead> 
+
+          <tr> 
+
+            <th>ID</th> 
+
+            <th>Nombre</th> 
+
+            <th>Género</th> 
+
+            <th>Correo</th> 
+
+            <th>Teléfono</th> 
+
+            <th>Preferencia Pago</th> 
+
+            <th>Notas</th> 
+
+          </tr> 
+
+        </thead> 
+
+        <tbody id="clientesBody"> 
+
+          <!-- Los datos de los clientes se cargarán aquí dinámicamente --> 
+
+        </tbody> 
+
+      </table> 
+
+    </div> 
+
+  </div>
+
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script> 
+
+  <script src="clientes.js"></script> 
+
+</body> 
+
+</html> 
